@@ -1,0 +1,117 @@
+<div class="register-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+            
+                <img src="../../../../assets/img/Screenshot 2022-11-24 at 09.09.19.png" class="mx-auto d-block py-5" alt="">
+              <h3 class="mb-3 text-center">REGISTER</h3>
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-7 pe-0">
+                            <div class="form-left h-100 py-5 px-5">
+                                <form class="row g-4" [formGroup] = "AddUserForm" novalidate>
+                                        <div class="col-12">
+                                            <label>Full name</label>
+                                            <div class="input-group">
+                                                <input type="text" formControlName="fullname" class="form-control" placeholder="Enter full name"
+                                                [ngClass]="{ 'is-invalid': submitted && formValidation['fullname'].errors }">
+                                                <div class="input-group-text right-icon"><i class="bi bi-person-fill text-white"></i></div>
+
+                                                <div *ngIf="submitted && formValidation['fullname'].errors" class="invalid-feedback">
+                                                    <div *ngIf="formValidation['fullname'].errors['required']">Full name is required</div>
+                                                    <div *ngIf="formValidation['fullname'].errors['minlength']">
+                                                    Full name must be at least 3 characters
+                                                    </div>
+                                                    <div *ngIf="formValidation['fullname'].errors['maxlength']">
+                                                    Full name must not exceed 50 characters
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Email</label>
+                                            <div class="input-group">
+                                                <input type="text" formControlName="email" class="form-control" placeholder="Enter Email"
+                                                [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }">
+                                                <div class="input-group-text right-icon"><i class="bi bi-envelope-fill text-white"></i></div>
+                                                    <div *ngIf="submitted && formValidation['email'].errors" class="invalid-feedback">
+                                                        <div *ngIf="formValidation['email'].errors['required']">Email is required</div>
+                                                        <div *ngIf="formValidation['email'].errors['email']">Email is invalid</div>
+                                                    </div> 
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Phone</label>
+                                            <div class="input-group">
+                                                <input type="text" formControlName="phone" class="form-control" placeholder="Enter Phone"
+                                                 [ngClass]="{ 'is-invalid': submitted && formValidation['phone'].errors }">
+                                                <div class="input-group-text right-icon"><i class="bi bi-phone-fill text-white"></i></div>
+                                                    <div *ngIf="submitted && formValidation['phone'].errors" class="invalid-feedback">
+                                                        <div *ngIf="formValidation['phone'].errors['required']">Phone is required</div>
+                                                        <div *ngIf="formValidation['phone'].errors['minlength']">
+                                                        Phone must be at least 10 characters
+                                                        </div>
+                                                        <div *ngIf="formValidation['phone'].errors['maxlength']">
+                                                        Phone must not exceed 10 characters
+                                                        </div>
+                                                    </div>   
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label>User type</label>
+                                            <div class="input-group">
+                                                <select class="form-control" formControlName="userType" [ngClass]="{ 'is-invalid': submitted && formValidation['userType'].errors }">
+                                                    <option selected>Select user type...</option>
+                                                    <option value='Houseowner'>House Owener</option>
+                                                    <option value="Housekeeper">House Keeper</option>
+                                                </select>
+                                                <!-- <div class="input-group-text right-icon"><i class="bi bi-phone-fill text-white"></i></div> -->
+                                                    <div *ngIf="submitted && formValidation['userType'].errors" class="invalid-feedback">
+                                                        <div *ngIf="formValidation['userType'].errors['required']">User type is required</div>
+                                                    </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label>Password</label>
+                                            <div class="input-group">
+                                                <input type="password" formControlName="password" class="form-control" placeholder="Enter Password"
+                                                [ngClass]="{ 'is-invalid': submitted && formValidation['password'].errors }">
+                                                <div class="input-group-text right-icon"><i class="bi bi-lock-fill text-white"></i></div>
+                                                <div *ngIf="submitted && formValidation['password'].errors" class="invalid-feedback">
+                                                  <div *ngIf="formValidation['password'].errors['required']">Password is required</div>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Confirm Password</label>
+                                            <div class="input-group">
+                                                <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Re-enter Password"
+                                                [ngClass]="{ 'is-invalid': submitted && formValidation['confirmPassword'].errors }">
+                                                <div class="input-group-text right-icon"><i class="bi bi-lock-fill text-white"></i></div>
+                                                <div *ngIf="submitted && formValidation['confirmPassword'].errors" class="invalid-feedback">
+                                                  <div *ngIf="formValidation['confirmPassword'].errors['required']">Confirm password is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 justify-content-center mx-auto text-center">
+                                            <button type="submit" (click)="AddUser()" class="btn btn-primary px-4 mt-4 ">Submit</button>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-5 ps-0 d-none d-md-block">
+                            <div class="form-right h-100 text-white text-center pt-5">
+                                <img src="../../../../assets/img/PngItem_5228805.png"  class="img" alt="">
+                                <!-- <i class="bi bi-brush"></i> -->
+                                <!-- <h2 class="fs-1"> <i class="bi bi-brush"></i>Welcome Back!!!</h2> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mb-3 text-center">Already have accounts <a [routerLink]="['/login']">Login here </a></p>
+            </div>
+        </div>
+    </div>
+</div>

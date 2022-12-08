@@ -1,0 +1,54 @@
+<div class="completeRegister">
+    <div class="container">
+        <div class="row header">
+            <h3 class="text-center">COMPLETE PROFILE</h3>
+        </div>
+
+        <div class="row">
+            <form class="row g-4">
+                <div class="col-12">
+                    <label>ID Number</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Enter ID number">
+                        <!-- [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }"> -->
+                        <div class="input-group-text right-icon"><i class="bi bi-envelope-fill text-white"></i></div>
+                            <!-- <div *ngIf="submitted && formValidation['email'].errors" class="invalid-feedback">
+                                <div *ngIf="formValidation['email'].errors['required']">Email is required</div>
+                                <div *ngIf="formValidation['email'].errors['email']">Email is invalid</div>
+                            </div> -->
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label>Address</label>
+                    <div class="input-group">
+                        <textarea type="text" class="form-control" placeholder="Enter address"></textarea>
+                        <!-- [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }"> -->
+                            <!-- <div *ngIf="submitted && formValidation['email'].errors" class="invalid-feedback">
+                                <div *ngIf="formValidation['email'].errors['required']">Email is required</div>
+                                <div *ngIf="formValidation['email'].errors['email']">Email is invalid</div>
+                            </div> -->
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label>Upload supporting documents</label>
+                    <p class="text-danger">NB : Certified ID and proof of address</p>
+                    <div class="input-group">
+                        <input type="file" class="form-control">
+                        <!-- [ngClass]="{ 'is-invalid': submitted && formValidation['password'].errors }"> -->
+                        <div class="input-group-text right-icon"><i class="bi bi-file-earmark-text text-white"></i></div>
+                        <!-- <div *ngIf="submitted && formValidation['password'].errors" class="invalid-feedback">
+                          <div *ngIf="formValidation['password'].errors['required']">Password is required</div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="col-12 justify-content-center mx-auto text-center">
+                    <button type="submit" class="btn btn-primary px-4 mt-4 ">Submit</button>
+                </div>
+        </form>
+        </div>
+    </div>
+</div>
+

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+  public rout:any;
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+
+    if(this.router.url === "/login"){
+      this.rout = this.router.url;
+    }
+    if(this.router.url === "/register")
+    {
+      this.rout = this.router.url;
+    }
+  }
 }

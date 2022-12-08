@@ -1,0 +1,14 @@
+.profile-img
+{
+    // background-color: black;
+    height: 190px;
+    width: 190px;
+    border-radius: 50%;
+    overflow: hidden;
+    border-style: 10px;
+}
+.profile-img img{
+    width: fit-content;
+    height: 100%;
+    width: 100%;
+}
