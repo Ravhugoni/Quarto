@@ -13,12 +13,14 @@ import { HeaderComponent } from './shared/header/header.component';
 import { AuthguradService } from './service/authgurad.service';
 import { CompleteProfileComponent } from './pages/complete-profile/complete-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    // FooterComponent,
     // HeaderComponent,
     // CompleteProfileComponent,
     // ProfileComponent
