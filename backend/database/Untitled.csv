@@ -1,0 +1,32 @@
+1,Domestic Clean
+2,Commercial Clean
+3,General Clean
+4,Mini Clean
+5,Spring & Deep Clean
+6,Décor Clean
+7,End of Tenancy Clean
+8,Event & Party Clean
+9,Bathroom Clean
+10,Floor & Carpet Clean
+11,Window Cleaning
+12,Dry & Upholstery Clean
+13,De-cluttering & Storage
+14,Medical Clean
+15,Cars & Vehicles
+
+
+-- Table: public.category
+
+-- DROP TABLE IF EXISTS public.category;
+
+CREATE TABLE IF NOT EXISTS public.category
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    category text COLLATE pg_catalog."default",
+    CONSTRAINT category_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.category
+    OWNER to postgres;
