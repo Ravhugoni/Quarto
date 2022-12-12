@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   submitted = false;
 
   constructor(private userServive:UserService, private router: Router, private toast: NgToastService, public fb: FormBuilder) { 
-    this.myForm();
   }
 
   myForm() {
@@ -35,6 +34,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     // sessionStorage.setItem( JSON.stringify({loginName: "not yet", isLogged : "true"})); 
+    this.myForm();
   }
 
   get formValidation(): { [key: string]: AbstractControl } {
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         password: this.UserLoginForm.value.password
       }
 
-      console.log(logingDetails)
+      // console.log(logingDetails)
 
       if(logingDetails.email != '' && logingDetails.password != '')
       {

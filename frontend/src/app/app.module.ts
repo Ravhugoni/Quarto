@@ -11,19 +11,19 @@ import { NgToastModule } from 'ng-angular-popup';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './shared/header/header.component';
 import { AuthguradService } from './service/authgurad.service';
-import { CompleteProfileComponent } from './pages/complete-profile/complete-profile.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { FooterComponent } from './shared/footer/footer.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { JobsComponent } from './pages/jobs/jobs.component';
+import { FeaturesComponent } from './pages/features/features.component';
+import { AddJobComponent } from './pages/jobs/add-job/add-job.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    // FooterComponent,
-    // HeaderComponent,
-    // CompleteProfileComponent,
-    // ProfileComponent
+    FeaturesComponent,
+    JobsComponent,
+    AddJobComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +33,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     ReactiveFormsModule,
     RouterModule,
     NgToastModule,
+    NgxSpinnerModule,
   ],
   providers: [
     AuthguradService

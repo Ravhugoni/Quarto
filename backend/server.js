@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const login = require('./controllers/login');
 const register = require('./controllers/register');
+const user = require('./controllers/users');
+const job = require('./controllers/jobs');
 const port = 3000;
 // const dotenv = require('dotenv');
 const cors = require('cors');
@@ -30,6 +32,13 @@ app.post('/users/login', login.login)
 //routes for registering
 app.post('/users/register', register.registerUser)
 
+//routes for users
+app.get('/users', user.getUsers)
+
+//routes for Jobs
+app.get('/jobs', job.getJobs)
+app.post('/jobs', job.postJob)
+
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
-  })
+})

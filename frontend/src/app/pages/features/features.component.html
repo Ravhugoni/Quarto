@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row text-center header">
+    <p><b>Our Service</b></p>
+  </div>
+</div>
+<div class="container categories">
+  <div class="row align-items-center text-center">
+    <div class="col-md-3 col-lg-2 col-sm-12 mt-3">
+      <a [routerLink]="['/jobs', 'Cleaning']">
+        <div class="card shadow-sm p-3 mb-5 rounded">
+          <i class="fa fa-paint-brush" aria-hidden="true"></i>
+          <p>Cleaning</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3 col-lg-2 col-sm-12 mt-3">
+      <a [routerLink]="['/jobs', 'Office']">
+        <div class="card shadow-sm p-3 mb-5 rounded">
+          <i class="fa fa-building" aria-hidden="true"></i>
+          <p>Office</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3 col-lg-2 col-sm-12 mt-3">
+      <a [routerLink]="['/jobs', 'Kitchen']">
+        <div class="card shadow-sm p-3 mb-5 rounded">
+          <i class="fa fa-cutlery" aria-hidden="true"></i>
+          <p>Kitchen</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3 col-lg-2 col-sm-12 mt-3">
+      <a [routerLink]="['/jobs', 'Carpentry']">
+        <div class="card shadow-sm p-3 mb-5 rounded">
+          <i class="fa fa-cutlery" aria-hidden="true"></i>
+          <p>Carpentry</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3 col-lg-2 col-sm-12 mt-3">
+      <div class="card shadow-sm p-3 mb-5 rounded">
+        <i class="fa fa-cutlery" aria-hidden="true"></i>
+        <p>Plumbing</p>
+      </div>
+    </div>
+    <div class="col-md-3 col-lg-2 col-sm-12 mt-3">
+      <div class="card shadow-sm p-3 mb-5 rounded">
+        <i class="fa fa-cutlery" aria-hidden="true"></i>
+        <p>Paint</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container supplier">
+  <div class="row text-center header">
+    <p><b>Popular supplier</b></p>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12" *ngFor="let user of users">
+      <div class="card shadow p-3 mb-5 rounded">
+        <div class="row">
+          <div class="col-3">
+             <div class="img">
+                <img src="../../../assets/img/WhatsApp Image 2022-06-14 at 10.29.31 PM.jpeg">
+             </div>
+            
+          </div>
+          <div class="col">
+            <p class="name"><i class="bi bi-person-fill"></i>{{user.fullname}}</p>
+            <span class="address"><i class="bi bi-phone-fill" aria-hidden="true"></i> {{user.phone}}</span><br>
+            <span class="address"><i class="fa fa-map-marker" aria-hidden="true"></i> {{user.address}}</span>
+            <hr>
+            <span class="address">25 Jobs completed</span>
+          </div>
+        </div><br>
+        <div class="row text-center">
+          <div class="">
+            <span class="seemorebtn">learn more</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

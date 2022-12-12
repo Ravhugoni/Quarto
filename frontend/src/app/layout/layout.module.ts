@@ -5,6 +5,7 @@ import { LayoutRoutes } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { HeaderComponent } from '../shared/header/header.component';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FooterComponent } from '../shared/footer/footer.component';
   ],
   imports: [
     CommonModule,
+    NgxSpinnerModule,
     RouterModule.forChild(LayoutRoutes),
   ]
 })

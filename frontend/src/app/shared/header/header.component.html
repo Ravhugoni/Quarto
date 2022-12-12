@@ -8,32 +8,42 @@
             <img src="../../../assets/img/whitebglogin.png" class="h-8" alt="...">
           </a>
         </div>
+
+        <!-- <div class="col-2">
+          <a type="button">
+            <i class="fa-solid fa-bell text-dark"></i>
+          </a>
+        </div> -->
+
         <div class="col-2">
           <a class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fa-solid fa-bars text-dark"></i> hello
+            <i class="fa-solid fa-bars text-dark"></i>
           </a>
         </div>
       </div>
-      <!-- Collapse -->
-      <div class="collapse navbar-collapse" id="navbarCollapse">
+       <!-- Collapse -->
+       <div class="collapse navbar-collapse" id="navbarCollapse">
         <!-- Nav -->
         <div class="navbar-nav mx-lg-auto">
           <a class="nav-item nav-link active text-dark" [routerLink]="['/']" aria-current="page">Home</a>
           <a class="nav-item nav-link text-dark" href="#">Product</a>
-          <a class="nav-item nav-link text-dark" href="#">Features</a>
+          <a class="nav-item nav-link text-dark" [routerLink]="['/features']">Features</a>
           <a class="nav-item nav-link text-dark" [routerLink]="['/completeRegister']">Complete Register</a>
           <a class="nav-item nav-link text-dark" [routerLink]="['/profile']">profile</a>
         </div>
         <!-- Right navigation -->
         <div class="navbar-nav ms-lg-4">
-          <a class="nav-item nav-link text-dark" [routerLink]="['/login']">Sign in</a>
+          <a class="nav-item nav-link text-dark" *ngIf="islogin == false" [routerLink]="['/login']">Login</a>
+          <a class="nav-item nav-link text-dark" *ngIf="islogin == true" (click)="LogOut()">Logout</a>
         </div>
+
         <!-- Action -->
         <div class="d-flex align-items-lg-center mt-3 mt-lg-0">
-          <a [routerLink]="['/register']" class="btn btn-sm btn-primary w-full w-lg-auto">
+          <a [routerLink]="['/register']"  *ngIf="islogin == false"  class="btn btn-sm btn-primary w-full w-lg-auto">
             Register
           </a>
         </div>
       </div>
+
     </div>
 </nav>

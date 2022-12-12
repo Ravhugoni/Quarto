@@ -1,0 +1,29 @@
+.completeRegister
+{
+    background-color: var(--main-bg);
+    border-radius: 15px 15px 15px 15px;
+    height: 95vh;
+}
+.header
+{
+    padding-top: 6%;
+
+    color: var(--white);
+}
+label
+{
+    color: var(--white);
+}
+.right-icon
+{
+    background-color: var(--gray);
+}
+
+.btn
+{
+    background-color: var(--white);
+    width: 50%;
+    color: var(--main-bg);
+    font-weight: bolder;
+    border: none;
+}
