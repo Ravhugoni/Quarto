@@ -15,6 +15,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { JobsComponent } from './pages/jobs/jobs.component';
 import { FeaturesComponent } from './pages/features/features.component';
 import { AddJobComponent } from './pages/jobs/add-job/add-job.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AddJobComponent } from './pages/jobs/add-job/add-job.component';
     FeaturesComponent,
     JobsComponent,
     AddJobComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

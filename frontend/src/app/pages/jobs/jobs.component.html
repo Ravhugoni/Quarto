@@ -1,72 +1,65 @@
 
-<div class="container-fluid jobs">
+<div class="container jobs">
     <div class="row text-center header my-5">
       <p><b>{{paramsCategory}} Jobs</b></p>
     </div>
 
     <div class="row">
-        <div class="col-4 my-5">
+        <div class="col-8 my-5">
             <span class="seemorebtn" [routerLink]="['/addJob']">Add Job</span>
         </div>
     </div>
 
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-12" *ngFor="let job of jobs">
-        <div class="card shadow p-3 mb-5 rounded">
-          <div class="row">
-            <div class="col-6">
+        <div class="card shadow">
 
-            </div>
-            <div class="col-6">
-
+          <div class="card-header">
+            <div class="row">
+              <div class="col-6">
+                <span class="discription">
+                  <img src="../../../assets/img/PngItem_306527.png">
+                  Londotani Daniel
+              </span>
+              </div>
+              <div class="col-6">
+  
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col">
-              <span class="title text-dark"> Title</span><br>
-              <span class="discription"> {{job.title}}</span><br><hr>
+         
+          <div class="row card-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-6">
+                  <span class="title"><b>{{job.title}}</b></span>
+                </div>
+                <div class="col-6">
+                  <span class="text-muted">R{{job.price}}</span>
+                </div>
+                </div>
 
-              <!-- <p class="name"><i class="bi bi-person-fill"></i>Discription: Londotani Daniel</p> -->
-              <span class="title text-dark"> Discription</span><br>
-              <span class="discription"><i class="bi bi-phone-fill" aria-hidden="true"></i> {{job.discription}}</span><br><hr>
-              <span class="title text-dark"> Address</span><br>
-              <span class="discription"><i class="fa fa-map-marker" aria-hidden="true"></i>{{job.address}}</span>
               <hr>
 
-              
-              <div class="row justify-content-start">
-                <div class="row">
-                    <div class="col-6"> 
-                        <span class="title text-dark">
-                            Posted by
-                        </span>
-                    </div>
-                    <div class="col-6"> 
-                      <span class="title text-dark">Date</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6"> 
-                        <span class="discription">
-                            <img src="../../../assets/img/PngItem_306527.png">
-                            Londotani Daniel
-                        </span>
-                    </div>
-                    <div class="col-6"> 
-                      <span class="discription justify-content-end">{{job.created_at}}</span>
-                    </div>
-                </div>
-              </div>
-             
+              <span class="discription"><i class="bi bi-phone-fill" aria-hidden="true"></i> {{job.discription}}</span><br><hr>
+              <span class="discription"><i class="fa fa-map-marker" aria-hidden="true"></i>{{job.address}}</span>
             </div>
           </div><br>
-          <div class="row text-center">
-            <div class="">
-              <span class="seemorebtn">learn more</span>
+
+          <div class="card-footer text-muted">
+            <div class="row text-center">
+              <div class="col-6"> 
+                <span class="discription justify-content-end">Posted: {{job.created_at| date:'yyyy-MMM-dd HH:mm'}}</span>
+              </div>
+              <div class="col-6">
+                <span class="seemorebtn">Apply</span>
+              </div>
             </div>
           </div>
           
         </div>
+
+        
       </div>
     </div>
   </div>

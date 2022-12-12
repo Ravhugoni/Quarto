@@ -28,7 +28,7 @@ export class JobsService {
     return this.httpClient.get(API_URL, email)
   }
   
-  GetAllJobs() {
+  GetAllJobs(): Observable<any>  {
     return this.httpClient.get(environment.REST_API + '/jobs');
   }
   

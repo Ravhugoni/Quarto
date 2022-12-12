@@ -21,9 +21,8 @@ const getJobs = (request, response) => {
   
   const postJob = (req, res) => {
 
-    const { title, discription, address, length, status, created_at, posterId, completerId, price, area} = req.body
-
-    pool.query('INSERT INTO public.job(title, discription, address, length, status, created_at, "posterId", "completerId", price, area) VALUES ($1, $2,$3, $4, $5, $6, $7, $8, $9, $10);',  [title, discription, address, length, status, created_at, posterId, completerId, price, area], (error, results) => {
+    const { title, discription, address, length, status, created_at, posterId, completerId, price, area, categoryId} = req.body
+    pool.query('INSERT INTO public.job(title, discription, address, length, status, created_at, "posterId", "completerId", price, area, "categoryId") VALUES ($1, $2,$3, $4, $5, $6, $7, $8, $9, $10, $11);',  [title, discription, address, length, status, created_at, posterId, completerId, price, area, categoryId], (error, results) => {
       if (error) {
         throw error
       }

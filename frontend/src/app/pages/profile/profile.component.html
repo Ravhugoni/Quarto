@@ -1,46 +1,46 @@
 <div class="completeRegister mb-5">
-    <div class="container">
+    <div class="container" *ngFor="let item of users">
         <div class="row header">
             <!-- <h3 class="text-center">PROFILE</h3> -->
             <div class="profile-img mx-auto shadow">
                 <img src="../../../assets/img/PngItem_5228805.png">
             </div>
-            <p class="text-center mt-3"><b>Londotani Daniel Ravhugoni</b></p>
+            <p class="text-center mt-3"><b>{{item.fullname}}</b></p>
         </div>
 
         <div class="row">
             <div class="col-lg-6">
                 <label>Email</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" value="RavhugoniLd@gmail.com" disabled>
+                    <input type="text" class="form-control" value="{{item.email}}" disabled>
                     <div class="input-group-text right-icon"><i class="bi bi-envelope-fill text-white"></i></div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <label>Id Number</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" value="9602095751081" disabled>
+                    <input type="text" class="form-control" value="{{item.idNumber}}" disabled>
                     <div class="input-group-text right-icon"><i class="bi bi-envelope-fill text-white"></i></div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <label>Phone Number</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" value="0797061652" disabled>
+                    <input type="text" class="form-control" value="{{item.phone}}" disabled>
                     <div class="input-group-text right-icon"><i class="bi bi-phone-fill text-white"></i></div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-6">
                 <label>User Type</label>
                 <div class="input-group">
                     <input type="text" class="form-control" value="HouseKeeper" disabled>
-                    <div class="input-group-text right-icon"><i class="bi bi-person-fill text-white"></i></div>
+                    <!-- <div class="input-group-text right-icon"><i class="bi bi-person-fill text-white"></i></div> -->
                 </div>
             </div>
             <div class="col-lg-12">
                 <label>Address</label>
                 <div class="input-group">
-                    <textarea type="text" class="form-control" disabled> 27 Risik St, Johannesburg</textarea>
+                    <textarea type="text" class="form-control" disabled>{{item.address}}</textarea>
                 </div>
             </div>
         </div>

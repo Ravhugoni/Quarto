@@ -5,122 +5,119 @@
         </div>
 
         <div class="row">
-            <form class="row g-4">
+            <form class="row g-4" [formGroup] = "jobForm" novalidate>
 
                 <div class="col-12">
                     <label>Tilte</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Enter job title">
-                        <!-- [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }"> -->
-                        <!-- <div class="input-group-text right-icon"><i class="bi bi-envelope-fill text-white"></i></div> -->
-                            <!-- <div *ngIf="submitted && formValidation['email'].errors" class="invalid-feedback">
-                                <div *ngIf="formValidation['email'].errors['required']">Email is required</div>
-                                <div *ngIf="formValidation['email'].errors['email']">Email is invalid</div>
-                            </div> -->
+                        <input type="text" class="form-control" placeholder="Enter job title" formControlName="title"
+                        [ngClass]="{ 'is-invalid': submitted && formValidation['title'].errors }"> 
+                            <div *ngIf="submitted && formValidation['title'].errors" class="invalid-feedback">
+                                <div *ngIf="formValidation['title'].errors['required']">Title is required</div>
+                                <div *ngIf="formValidation['title'].errors['title']">Title is invalid</div>
+                            </div>
                     </div>
                 </div>
 
                 <div class="col-6">
                     <label>Job Category</label>
                     <div class="input-group">
-                        <select class="form-control">
-                            <option>Cleaning</option>
-                            <option>Office</option>
-                            <option>babysitting</option>
+                        <select class="form-control" formControlName="categoryId" [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }">
+                            <option *ngFor="let cat of category" value='{{cat.id}}'>{{cat.category}}</option>
                         </select>
-                        <!-- [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }"> -->
-                        <!-- <div class="input-group-text right-icon"><i class="bi bi-envelope-fill text-white"></i></div> -->
-                            <!-- <div *ngIf="submitted && formValidation['email'].errors" class="invalid-feedback">
-                                <div *ngIf="formValidation['email'].errors['required']">Email is required</div>
-                                <div *ngIf="formValidation['email'].errors['email']">Email is invalid</div>
-                            </div> -->
+                        
+                            <div *ngIf="submitted && formValidation['categoryId'].errors" class="invalid-feedback">
+                                <div *ngIf="formValidation['categoryId'].errors['required']">category is required</div>
+                                <div *ngIf="formValidation['categoryId'].errors['categoryId']">category is invalid</div>
+                            </div>
                     </div>
                 </div>
-
                 <div class="col-6">
                     <label>Job Area</label>
                     <div class="input-group">
-                        <select class="form-control">
+                        <select class="form-control" formControlName="area" [ngClass]="{ 'is-invalid': submitted && formValidation['area'].errors }">
                             <option>Home</option>
                             <option>Office</option>
                             <option>Outdoor</option>
                         </select>
-                        <!-- [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }"> -->
-                        <!-- <div class="input-group-text right-icon"><i class="bi bi-envelope-fill text-white"></i></div> -->
-                            <!-- <div *ngIf="submitted && formValidation['email'].errors" class="invalid-feedback">
-                                <div *ngIf="formValidation['email'].errors['required']">Email is required</div>
-                                <div *ngIf="formValidation['email'].errors['email']">Email is invalid</div>
-                            </div> -->
+                            <div *ngIf="submitted && formValidation['area'].errors" class="invalid-feedback">
+                                <div *ngIf="formValidation['area'].errors['required']">Area is required</div>
+                                <div *ngIf="formValidation['area'].errors['area']">Area is invalid</div>
+                            </div>
                     </div>
                 </div>
                 <div class="col-6">
-                    <label>Job Length</label>
+                    <label>Appartment Size</label>
                     <div class="input-group">
-                        <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <select class="form-control" formControlName="length" [ngClass]="{ 'is-invalid': submitted && formValidation['length'].errors }">
+                            <option value="2-5">2m &#178; - 5m &#178;</option>
+                            <option value="5-10">5m &#178; - 10m &#178;</option>
+                            <option value="10-15">10m &#178; - 15m &#178;</option>
+                            <option value="15-20">15m &#178; - 20m &#178;</option>
+                            <option value="20-40">20m &#178; - 40m &#178;</option>
+                            <option value="40-80">40m &#178; - 80m &#178;</option>
+                            <option value="80-120">80m &#178; - 120m &#178;</option>
+                            <option value="120-200">120m &#178; - 200m &#178;</option>
+                            <option value="200-400">200m &#178; - 400m &#178;</option>
+                            <option value="400-600">400m &#178; - 600m &#178;</option>
+                            <option value=">600">>600m &#178;</option>
                         </select>
-                        <!-- [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }"> -->
-                        <!-- <div class="input-group-text right-icon"><i class="bi bi-envelope-fill text-white"></i></div> -->
-                            <!-- <div *ngIf="submitted && formValidation['email'].errors" class="invalid-feedback">
-                                <div *ngIf="formValidation['email'].errors['required']">Email is required</div>
-                                <div *ngIf="formValidation['email'].errors['email']">Email is invalid</div>
-                            </div> -->
+                        
+                            <div *ngIf="submitted && formValidation['length'].errors" class="invalid-feedback">
+                                <div *ngIf="formValidation['length'].errors['required']">Length is required</div>
+                                <div *ngIf="formValidation['length'].errors['length']">Length is invalid</div>
+                            </div>
                     </div>
                 </div>
                 <div class="col-6">
                     <label>Job Price</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Enter job title">
-                        <!-- [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }"> -->
-                        <!-- <div class="input-group-text right-icon"><i class="bi bi-envelope-fill text-white"></i></div> -->
-                            <!-- <div *ngIf="submitted && formValidation['email'].errors" class="invalid-feedback">
-                                <div *ngIf="formValidation['email'].errors['required']">Email is required</div>
-                                <div *ngIf="formValidation['email'].errors['email']">Email is invalid</div>
-                            </div> -->
+                        <input type="text" class="form-control" placeholder="Enter job price" formControlName="price"
+                        [ngClass]="{ 'is-invalid': submitted && formValidation['price'].errors }">
+                            <div *ngIf="submitted && formValidation['price'].errors" class="invalid-feedback">
+                                <div *ngIf="formValidation['price'].errors['required']">Price is required</div>
+                                <div *ngIf="formValidation['price'].errors['price']">Price is invalid</div>
+                            </div>
                     </div>
                 </div>
 
                 <div class="col-12">
                     <label>Discription</label>
                     <div class="input-group">
-                        <textarea type="text" class="form-control" placeholder="Enter Job Discription"></textarea>
-                        <!-- [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }"> -->
-                            <!-- <div *ngIf="submitted && formValidation['email'].errors" class="invalid-feedback">
-                                <div *ngIf="formValidation['email'].errors['required']">Email is required</div>
-                                <div *ngIf="formValidation['email'].errors['email']">Email is invalid</div>
-                            </div> -->
+                        <textarea type="text" class="form-control" placeholder="Enter Job Discription" formControlName="discription" [ngClass]="{ 'is-invalid': submitted && formValidation['discription'].errors }"></textarea>
+                        
+                            <div *ngIf="submitted && formValidation['discription'].errors" class="invalid-feedback">
+                                <div *ngIf="formValidation['discription'].errors['required']">Discription is required</div>
+                                <div *ngIf="formValidation['discription'].errors['discription']">Discription is invalid</div>
+                            </div>
                     </div>
                 </div>
-                <div class="col-12">
+            </form>
+            <form [formGroup] = "addressForm" novalidate>
+                <div class="row ">
+                    <div class="col-2">
+                        <input type="checkbox" id="Checkbox0" class="custom-control-input" (change)="checkSelected($event)">
+                    </div>
+                    <div class="col-10 text-white">Check if you using same address</div>
+                </div>
+                <div class="col-12" >
                     <label>Address</label>
                     <div class="input-group">
-                        <textarea type="text" class="form-control" placeholder="Enter address"></textarea>
-                        <!-- [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }"> -->
-                            <!-- <div *ngIf="submitted && formValidation['email'].errors" class="invalid-feedback">
-                                <div *ngIf="formValidation['email'].errors['required']">Email is required</div>
-                                <div *ngIf="formValidation['email'].errors['email']">Email is invalid</div>
-                            </div> -->
+                        <input type="text" class="form-control" placeholder="Enter Address" [disabled]="isDisabled" formControlName="address"
+                        [ngClass]="{ 'is-invalid': submitted && formValidation['address'].errors }">
+                            <div *ngIf="submitted && formValidation['address'].errors" class="invalid-feedback">
+                                <div *ngIf="formValidation['address'].errors['required']">Address is required</div>
+                                <div *ngIf="formValidation['address'].errors['address']">Address is invalid</div>
+                            </div>
                     </div>
                 </div>
 
-                <!-- <div class="col-12">
-                    <label>Upload supporting documents</label>
-                    <div class="input-group">
-                        <input type="file" class="form-control">
-                        [ngClass]="{ 'is-invalid': submitted && formValidation['password'].errors }">
-                        <div class="input-group-text right-icon"><i class="bi bi-file-earmark-text text-white"></i></div>
-                        <div *ngIf="submitted && formValidation['password'].errors" class="invalid-feedback">
-                          <div *ngIf="formValidation['password'].errors['required']">Password is required</div>
-                        </div>
-                    </div>
-                </div> -->
+            </form>
 
                 <div class="col-12 justify-content-center mx-auto text-center">
-                    <button type="submit" class="btn btn-primary px-4 mt-4 ">Submit</button>
+                    <button type="submit" class="btn btn-primary px-4 mt-4 " (click)="addJob()">Submit</button>
                 </div>
-        </form>
+        
         </div>
     </div>
 </div>

@@ -5,6 +5,7 @@ const login = require('./controllers/login');
 const register = require('./controllers/register');
 const user = require('./controllers/users');
 const job = require('./controllers/jobs');
+const cat = require('./controllers/category');
 const port = 3000;
 // const dotenv = require('dotenv');
 const cors = require('cors');
@@ -38,6 +39,9 @@ app.get('/users', user.getUsers)
 //routes for Jobs
 app.get('/jobs', job.getJobs)
 app.post('/jobs', job.postJob)
+
+//routes for Jobs
+app.get('/category', cat.getCategory)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

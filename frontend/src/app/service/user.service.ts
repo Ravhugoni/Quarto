@@ -28,8 +28,8 @@ GetUserByEmail(email:any): Observable<any> {
   return this.httpClient.get(API_URL, email)
 }
 
-GetAllUsers() {
-  return this.httpClient.get(environment.REST_API + '/users');
+GetAllUsers(): Observable<any> {
+  return this.httpClient.get(environment.REST_API + '/users').pipe();
 }
 
 updateProfile(id: any, data: any): Observable<any> {

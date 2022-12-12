@@ -12,7 +12,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   declarations: [
     LayoutComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     CommonModule,
