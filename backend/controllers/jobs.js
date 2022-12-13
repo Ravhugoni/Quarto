@@ -5,7 +5,7 @@ const handleErr = (err, req, res, next) => {
 }
 
 const getJobs = (request, response) => {
-    pool.query('SELECT * FROM public.job ORDER BY id ASC', (error, results) => {
+    pool.query('SELECT * FROM job j, users u WHERE j."posterId" = u.id ORDER BY j.id ASC', (error, results) => {
       response.status(200).json(results.rows)
     }),handleErr
   }

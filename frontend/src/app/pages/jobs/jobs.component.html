@@ -1,7 +1,7 @@
 
-<div class="container jobs">
+<div class="container jobs mb-5">
     <div class="row text-center header my-5">
-      <p><b>{{paramsCategory}} Jobs</b></p>
+      <p><b>{{paramsCategoryName}} Jobs</b></p>
     </div>
 
     <div class="row">
@@ -16,15 +16,15 @@
 
           <div class="card-header">
             <div class="row">
-              <div class="col-6">
+              <div class="col-10">
                 <span class="discription">
                   <img src="../../../assets/img/PngItem_306527.png">
-                  Londotani Daniel
+                  {{job.fullname}}
               </span>
               </div>
-              <div class="col-6">
+              <!-- <div class="col-6">
   
-              </div>
+              </div> -->
             </div>
           </div>
          
@@ -52,7 +52,8 @@
                 <span class="discription justify-content-end">Posted: {{job.created_at| date:'yyyy-MMM-dd HH:mm'}}</span>
               </div>
               <div class="col-6">
-                <span class="seemorebtn">Apply</span>
+                <p></p>
+                <span class="seemorebtn mt-3">Apply</span>
               </div>
             </div>
           </div>

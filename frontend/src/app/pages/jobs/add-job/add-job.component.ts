@@ -26,10 +26,6 @@ export class AddJobComponent implements OnInit {
     price: new FormControl(''),
     area: new FormControl(''),
     categoryId: new FormControl(''),
-    // status: new FormControl(''),
-    // created_at: new FormControl(''),
-    // posterId: new FormControl(''),
-    // completerId: new FormControl(''),
   });
 
   addressForm:FormGroup = new FormGroup({
@@ -38,8 +34,6 @@ export class AddJobComponent implements OnInit {
   });
 
   category : any;
-
-  // title, discription, address, length, status, created_at, posterId, completerId, price, area
   constructor(private jobsService:JobsService, private router: Router, private toast: NgToastService, public fb: FormBuilder,
     private categoryService:CategoryService, private userService: UserService) { 
   }
@@ -50,10 +44,6 @@ export class AddJobComponent implements OnInit {
       discription: ['', [ Validators.required ]],
       address: ['', [ Validators.required ]],
       length: ['', [ Validators.required ]],
-      // status: ['', [ Validators.required ]],
-      // created_at: ['', [ Validators.required ]],
-      // posterId: ['', [ Validators.required ]],
-      // completerId: ['', [ Validators.required ]],
       price: ['', [ Validators.required ]],
       area: ['', [ Validators.required ]],
       categoryId: ['', [ Validators.required ]],
@@ -65,7 +55,6 @@ export class AddJobComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // sessionStorage.setItem( JSON.stringify({loginName: "not yet", isLogged : "true"})); 
     this.myForm();
 
     this.categoryService.GetAllCategories().subscribe((res:any) => {

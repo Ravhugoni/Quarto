@@ -24,10 +24,10 @@ export class HeaderComponent implements OnInit {
         //get users list
         this.userServive.GetAllUsers().subscribe((res:any) => {
           let result = res;
-          this.users=result;
-          // this.users = result.filter(res => res.email === this.logEmail);
+          let tempUser;
+          tempUser = result.filter((resss:any) => resss.email === this.logEmail);
+          this.users=tempUser;
           this.islogin = true;
-          console.log(this.users[0].email);
        });
     }
     else
@@ -45,6 +45,11 @@ export class HeaderComponent implements OnInit {
     this.islogin = false;
     this.toast.success({detail:'Success',summary:'Successfully Logout!', sticky:false,position:'tr', duration:6000})
           
+  }
+
+  hideBadge()
+  {
+
   }
 
 }
