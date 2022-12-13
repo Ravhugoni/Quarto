@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable } from 'rxjs';
@@ -7,14 +7,16 @@ import { RateService } from 'src/app/service/rate.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-view-user',
+  templateUrl: './view-user.component.html',
+  styleUrls: ['./view-user.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class ViewUserComponent implements OnInit {
 
   public typeSelected:string;
   public logEmail: any;
+  sub: any;
+  paramsUser: any;
 
   users: any=[];
   islogin = false;
@@ -28,11 +30,15 @@ export class ProfileComponent implements OnInit {
   ratePg5 : any;
 
   constructor(private userService:UserService,private toast: NgToastService, private spinnerService: NgxSpinnerService,
-    private router: Router, private rateService: RateService) {
+    private router: Router, private rateService: RateService, private route: ActivatedRoute) {
     this.typeSelected = 'ball-scale-multiple';
    }
 
   ngOnInit(): void {
+
+    this.sub = this.route.params.subscribe(params => {
+      return this.paramsUser = params['user'];
+    });
 
     if('loggedEmail' in sessionStorage)
     {
@@ -40,11 +46,10 @@ export class ProfileComponent implements OnInit {
         //get users list
         this.userService.GetAllUsers().subscribe((res:any) => {
           this.result = res;
-          let tempUser;
-          tempUser = this.result.filter((resss:any) => resss.email === this.logEmail);
-          this.users.push(tempUser[0]);
-          this.islogin = true;
-          // console.log(this.users)
+          // let tempUser;
+          // tempUser = this.result.filter((resss:any) => String(resss.id) === String(this.paramsUser));
+          // this.users.push(tempUser[0]);
+          // console.log(this.users);
        });
 
        this.getRate();

@@ -36,7 +36,20 @@
           <a class="nav-item nav-link text-dark" [routerLink]="['/login']">Login</a>
         </div>
         <div class="navbar-nav ms-lg-4" *ngIf="islogin == true">
-          <div class="icon-badge-group mx-5 dropdown">
+          
+          <div class="dropdown icon-badge-group mx-2">
+            <a class="icon-badge-container" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" (click)="hideBadge()">
+              <i class="bi bi-bell icon-badge-icon"></i>
+              <div class="icon-badge">3</div>
+              <!-- <span class="caret"></span> -->
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuButton">
+              <li role="presentation" class="text-secondary"><a role="menuitem" tabindex="-1">Account</a></li>
+              <!-- <a class="dropdown-item" href="#" *ngFor="let item of notifications"><small class="message">{{item.Message}}</small> <br><small class="text-secondary">{{item.CreatedDate | date:'medium'}}</small></a>  -->
+              <li role="presentation" class="text-center"><a role="menuitem" tabindex="-1" (click)="LogOut()">Logout</a></li>
+            </ul>
+          </div> 
+          <!-- <div class="icon-badge-group mx-5 dropdown">
             <div class="icon-badge-container" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="hideBadge()" >
                 <i class="bi bi-bell icon-badge-icon"></i>
                 <div class="icon-badge">3</div>
@@ -44,48 +57,52 @@
 
             <div >
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 250px;">
-                  <!-- <a class="dropdown-item" href="#" *ngFor="let item of notifications"><small class="message">{{item.Message}}</small> <br><small class="text-secondary">{{item.CreatedDate | date:'medium'}}</small></a> -->
+                   <a class="dropdown-item" href="#" *ngFor="let item of notifications"><small class="message">{{item.Message}}</small> <br><small class="text-secondary">{{item.CreatedDate | date:'medium'}}</small></a> 
                 </div>
               </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- Action -->
         <div class="d-flex align-items-lg-center mt-3 mt-lg-0" *ngIf="islogin == false">
           <a [routerLink]="['/register']"  class="btn btn-sm btn-primary w-full w-lg-auto">
             Register
+
+            
           </a>
         </div>
 
         <div class="d-flex align-items-lg-center mt-3 mt-lg-0" *ngIf="islogin == true">
-          <div class="dropdown">
+          <div class="dropdown mx-2">
             <a class="" type="button" id="menu1" data-bs-toggle="dropdown">
                 <div class="profile-img shadow">
-                    <!-- <img src="../../../assets/img/WhatsApp Image 2022-06-14 at 10.29.31 PM.jpeg"> -->
+                    <!-- <img src="../../../assets/img/676-6764065_default-profile-picture-transparent-hd-png-download.png"> -->
+                    <i class="fa fa-user"></i> 
                 </div>
-              <!-- <span class="caret"></span> -->
             </a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
               <li role="presentation" class="text-secondary"><a role="menuitem" tabindex="-1">Account</a></li>
               <li role="presentation" class="border-bottom"><a role="menuitem" tabindex="-1" [routerLink]="['/profile']">
-                <div class="row" *ngFor="let user of users">
-                    <div class="col-4">
-                        <div class="profile-img shadow mb-2">
-                            <!-- <img src="../../../assets/bg5.jpg"> -->
-                        </div>
-                    </div>
-                    <div class="col-6 profile-info">
-                        {{user.fullname}} <br/>
-                        <small class="text-secondary">{{user.email}}</small>
-                    </div>
-                </div>
-            </a></li>
+                  <div class="row" *ngFor="let user of users">
+                      <div class="col-4">
+                          <div class="profile-img shadow mb-2">
+                              <!-- <img src="../../../assets/bg5.jpg"> -->
+                              <i class="fa fa-user"></i> 
+                          </div>
+                      </div>
+                      <div class="col-6 profile-info">
+                          {{user.fullname}} <br/>
+                          <small class="text-secondary">{{user.email}}</small>
+                      </div>
+                  </div>
+                  </a>
+              </li>
 
-              <li role="presentation" class="">
-                <a  [routerLink]="['/completeRegister']">Complete Register</a>
+              <li role="presentation" class="text-center">
+                <a [routerLink]="['/completeRegister']">Complete Register</a>
               </li>
               <li role="presentation" class="divider"></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" (click)="LogOut()">Logout</a></li>
+              <li role="presentation" class="text-center"><a role="menuitem" tabindex="-1" (click)="LogOut()">Logout</a></li>
             </ul>
           </div> 
         </div>

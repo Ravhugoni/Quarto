@@ -5,25 +5,27 @@
 
 .profile-img
 {
-    background-color: black;
+    background-color: var(--white);
     height: 25px;
     width: 25px;
     border-radius: 50%;
 }
-.profile-img img{
-    // height: 100%;
-    // max-width: 100%;
-    // margin: auto;
+.profile-img i{
+    height: 100%;
+    max-width: 100%;
+    margin-left: 20%;
+    margin-right: 20%;
     border-radius: 100%;
+    color: var(--main-bg);
     object-fit: cover;
 }
 
 .dropdown-menu
 {
     font-size: 12px;
-    margin-right: 50px;
+    // margin-right: 50px;
     padding-right: 100px;
-    margin-left: -120px;
+    // margin-left: -120px;
 }
 
 .dropdown-menu a
@@ -45,14 +47,15 @@
 }
 
 
+
 .icon-badge-group .icon-badge-container {
     display: inline-block;   
 }
 
-.icon-badge-group .icon-badge-container:first-child { 
-  margin-left:2rem;
-  margin-top: -0.5rem;
-}
+// .icon-badge-group .icon-badge-container:first-child { 
+//   margin-left:2rem;
+//   margin-top: -0.5rem;
+// }
 
 .icon-badge-container {
     margin-top:20px;
@@ -73,6 +76,77 @@
     height:15px;
     border-radius: 35%;
     position: absolute; /* changed */
-    top: -0.1px; /* changed */
-    left: 15px; /* changed */
+    // top: -0.1px; /* changed */
+    // left: 15px; /* changed */
+}
+
+@media only screen and (min-width: 991px){
+    .profile-img i{
+        height: 100%;
+        max-width: 100%;
+        margin-left: 20%;
+        margin-right: 20%;
+        border-radius: 100%;
+        color: var(--main-bg);
+        object-fit: cover;
+    }
+
+    .dropdown-menu
+    {
+        font-size: 12px;
+        margin-right: 50px;
+        padding-right: 100px;
+        margin-left: -120px;
+    }
+
+    .dropdown-menu a
+    {
+        margin-left: 10px;
+        text-decoration: none;
+    }
+    .dropdown-menu .profile-img
+    {
+        margin-left: 10px;
+        // margin-top: 10px;
+        text-decoration: none;
+    }
+
+    .dropdown-menu .profile-info
+    {
+        margin-left: 6px;
+        margin-top: -6px;
+    }
+
+    .icon-badge-group .icon-badge-container {
+        display: inline-block;   
+    }
+
+    .icon-badge-group .icon-badge-container:first-child { 
+    margin-left:2rem;
+    margin-top: -0.5rem;
+    }
+
+    .icon-badge-container {
+        margin-top:20px;
+        position:relative;
+    }
+
+    .icon-badge-icon {
+        // font-size: 25px;
+        position: relative;
+    }
+
+    .icon-badge {
+        background-color: red;
+        font-size: 10px;
+        color: white;
+        text-align: center;
+        width:15px;
+        height:15px;
+        border-radius: 35%;
+        position: absolute; /* changed */
+        top: -0.1px; /* changed */
+        left: 15px; /* changed */
+    }
+
 }

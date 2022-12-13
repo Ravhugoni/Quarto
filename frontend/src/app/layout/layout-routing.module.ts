@@ -6,6 +6,7 @@ import { HomeComponent } from '../pages/home/home.component';
 import { AddJobComponent } from '../pages/jobs/add-job/add-job.component';
 import { JobsComponent } from '../pages/jobs/jobs.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
+import { ViewUserComponent } from '../pages/view-user/view-user.component';
 
 export const LayoutRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,5 +14,6 @@ export const LayoutRoutes: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'features', component: FeaturesComponent},
   { path: 'jobs/:cat', component: JobsComponent},
+  { path: 'user/:id', component: ViewUserComponent},
   { path: 'addJob', component: AddJobComponent},
 ];

@@ -15,6 +15,7 @@ export class JobsComponent implements OnInit {
   paramsCategoryName:any;
   category:any;
   jobs:any;
+  jobLength:any;
   constructor(private router: Router, private route: ActivatedRoute, private jobsService: JobsService, private categoryService: CategoryService) { }
 
   ngOnInit(): void {
@@ -36,6 +37,7 @@ export class JobsComponent implements OnInit {
         let result = res;
         this.jobs=result.filter((resss:any) => String(resss.categoryId) === String(this.paramsCategory));
         console.log(this.jobs);
+        this.jobLength = this.jobs.length;
     });
   }
 

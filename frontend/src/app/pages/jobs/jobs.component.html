@@ -59,8 +59,11 @@
           </div>
           
         </div>
-
-        
       </div>
+
+      <div class="col-12 text-center" *ngIf="jobLength === 0">
+          <p>No Job under <b>{{paramsCategoryName}}</b> Category</p>
+      </div>
+
     </div>
   </div>
