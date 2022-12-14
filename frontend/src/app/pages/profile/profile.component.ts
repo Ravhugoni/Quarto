@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -27,25 +28,57 @@ export class ProfileComponent implements OnInit {
   ratePg4 : any;
   ratePg5 : any;
 
+  UserForm: FormGroup = new FormGroup({
+    fullname: new FormControl(''),
+    email: new FormControl(''),
+    idNumber: new FormControl(''),
+    phone: new FormControl(''),
+    userType: new FormControl(''),
+    address: new FormControl(''),
+  });
+ 
   constructor(private userService:UserService,private toast: NgToastService, private spinnerService: NgxSpinnerService,
-    private router: Router, private rateService: RateService) {
+    private router: Router, private rateService: RateService, private fb: FormBuilder) {
     this.typeSelected = 'ball-scale-multiple';
    }
 
-  ngOnInit(): void {
+   myForm() {
+    this.UserForm = this.fb.group({
+      fullname: ['', [ Validators.required ]],
+      email: ['', [Validators.required, Validators.email]],
+      idNumber:['', [ Validators.required ]],
+      phone: ['', [ Validators.required ]],
+      userType: ['', [ Validators.required ]],
+      address: ['', [ Validators.required ]],
+    });
+  }
 
+  ngOnInit(): void {
+  this.myForm();
     if('loggedEmail' in sessionStorage)
     {
         this.logEmail = sessionStorage.getItem('loggedEmail');
         //get users list
-        this.userService.GetAllUsers().subscribe((res:any) => {
+      this.userService.GetAllUsers().subscribe(async(res:any) => {
           this.result = res;
           let tempUser;
           tempUser = this.result.filter((resss:any) => resss.email === this.logEmail);
           this.users.push(tempUser[0]);
           this.islogin = true;
-          // console.log(this.users)
-       });
+       
+       
+          await this.UserForm.setValue({ 
+            fullname: this.users[0].fullname,
+            email: this.users[0].email,
+            idNumber: this.users[0].idNumber,
+            phone: this.users[0].phone,
+            userType: this.users[0].userType,
+            address: this.users[0].address,
+          });
+
+        });
+
+       
 
        this.getRate();
 
@@ -94,5 +127,13 @@ export class ProfileComponent implements OnInit {
 
    
   }
+
+  updateUser()
+  {
+    this.userService.updateProfile(Number.parseInt(this.users[0].id), this.UserForm.value).subscribe((next) => {
+      this.toast.success({detail:'success',summary:'Successfully Updated!', sticky:false,position:'tr', duration:6000})
+    });
+  }
+
 
 }

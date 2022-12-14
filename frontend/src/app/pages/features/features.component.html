@@ -143,11 +143,12 @@
   </div>
   <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-12" *ngFor="let user of users">
-      <div class="card shadow p-3 mb-5 rounded">
+      <div class="card shadow p-3 mb-5 rounded user-card">
         <div class="row">
           <div class="col-3">
              <div class="img">
-                <img src="../../../assets/img/WhatsApp Image 2022-06-14 at 10.29.31 PM.jpeg">
+                <!-- <img src="../../../assets/img/WhatsApp Image 2022-06-14 at 10.29.31 PM.jpeg"> -->
+                <i class="fa fa-user"></i>
              </div>
             
           </div>
@@ -155,8 +156,8 @@
             <p class="name"><i class="bi bi-person-fill"></i>{{user.fullname}}</p>
             <span class="address"><i class="bi bi-phone-fill" aria-hidden="true"></i> {{user.phone}}</span><br>
             <span class="address"><i class="fa fa-map-marker" aria-hidden="true"></i> {{user.address}}</span>
-            <hr>
-            <span class="address">25 Jobs completed</span>
+            <!-- <hr> -->
+            <!-- <span class="address">25 Jobs completed</span> -->
           </div>
         </div><br>
         <div class="row text-center">

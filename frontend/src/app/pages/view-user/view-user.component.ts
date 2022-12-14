@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -18,6 +19,15 @@ export class ViewUserComponent implements OnInit {
   sub: any;
   paramsUser: any;
 
+  RateForm: FormGroup = new FormGroup({
+    rate5: new FormControl(''),
+    rate4: new FormControl(''),
+    rate3: new FormControl(''),
+    rate2: new FormControl(''),
+    rate1: new FormControl(''),
+  });
+
+
   users: any=[];
   islogin = false;
   result: any;
@@ -30,15 +40,29 @@ export class ViewUserComponent implements OnInit {
   ratePg5 : any;
 
   constructor(private userService:UserService,private toast: NgToastService, private spinnerService: NgxSpinnerService,
-    private router: Router, private rateService: RateService, private route: ActivatedRoute) {
+    private router: Router, private rateService: RateService, private route: ActivatedRoute, private fb: FormBuilder) {
     this.typeSelected = 'ball-scale-multiple';
    }
 
+   myForm() {
+    this.RateForm = this.fb.group({
+      rate5: ['', [Validators.required]],
+      rate4: ['', [Validators.required]],
+      rate3: ['', [Validators.required]],
+      rate2: ['', [Validators.required]],
+      rate1: ['', [Validators.required]],
+    });
+  }
+
   ngOnInit(): void {
 
+    this.myForm();
+
     this.sub = this.route.params.subscribe(params => {
-      return this.paramsUser = params['user'];
+      return this.paramsUser = params['id'];
     });
+
+    console.log(this.paramsUser);
 
     if('loggedEmail' in sessionStorage)
     {
@@ -46,10 +70,8 @@ export class ViewUserComponent implements OnInit {
         //get users list
         this.userService.GetAllUsers().subscribe((res:any) => {
           this.result = res;
-          // let tempUser;
-          // tempUser = this.result.filter((resss:any) => String(resss.id) === String(this.paramsUser));
-          // this.users.push(tempUser[0]);
-          // console.log(this.users);
+          this.users = this.result.filter((resss:any) => String(resss.id) === String(this.paramsUser));
+          console.log(this.users);
        });
 
        this.getRate();
@@ -74,13 +96,23 @@ export class ViewUserComponent implements OnInit {
 
   async getRate()
   {
-    await this.rateService.GetNumRating().subscribe((res:any) => {
-      this.totRatings = res[0].numrated;
-      console.log(this.totRatings)
+    // await this.rateService.GetNumRating().subscribe((res:any) => {
+    //   this.totRatings = res[0].numrated;
+    //   // console.log(this.totRatings)
+    // });
+
+    await this.rateService.GetRateByReted().subscribe((res:any) => {
+      let result =  res.filter((resss:any) => String(resss.ratedId) === String(this.paramsUser));
+      // this.totRatings = result.length
+      // console.log("lang", this.totRatings)
     });
 
     this.rateService.GetAllRating().subscribe((res:any) => {
-      let result = res;
+
+      let result = res.filter((resss:any) => String(resss.ratedId) === String(this.paramsUser));
+      this.totRatings = result.length;
+
+      console.log("reted", result)
 
       let ratings1, ratings2, ratings3, ratings4, ratings5;
       ratings1 = result.filter((resss:any) => resss.rate === 1);
@@ -98,6 +130,93 @@ export class ViewUserComponent implements OnInit {
     });
 
    
+  }
+
+  AddRate(){
+
+    if(this.RateForm.value.rate1 != '')
+    {
+      let rateInfo ={
+        rate: Number(this.RateForm.value.rate1),
+        ratedId: Number(this.paramsUser),
+        raterId: this.users[0].id,
+      }
+
+      this.rateService.AddRate(rateInfo).subscribe((next:any) => {
+        console.log('Add successfully!');
+    
+          this.toast.success({detail:'Success',summary:'Rate successfully!', sticky:false,position:'tr', duration:1000})
+          this.router.navigate(['/user/'+this.paramsUser]);
+        });
+    }
+    else{
+      if(this.RateForm.value.rate2 != '')
+      {
+        let rateInfo ={
+          rate: Number(this.RateForm.value.rate2),
+          ratedId: Number(this.paramsUser),
+          raterId: this.users[0].id,
+        }
+        this.rateService.AddRate(rateInfo).subscribe((next:any) => {
+          console.log('Add successfully!');
+      
+            this.toast.success({detail:'Success',summary:'Rate successfully!', sticky:false,position:'tr', duration:1000})
+            this.router.navigate(['/user/'+this.paramsUser]);
+          })
+      }
+      else{
+        if(this.RateForm.value.rate3 != '')
+        {
+          let rateInfo ={
+            rate: Number(this.RateForm.value.rate3),
+            ratedId: Number(this.paramsUser),
+            raterId: this.users[0].id,
+          }
+          this.rateService.AddRate(rateInfo).subscribe((next:any) => {
+            console.log('Add successfully!');
+        
+              this.toast.success({detail:'Success',summary:'Rate successfully!', sticky:false,position:'tr', duration:1000})
+              this.router.navigate(['/user/'+this.paramsUser]);
+            });
+        } 
+        else{
+          if(this.RateForm.value.rate4 != '')
+          {
+            let rateInfo ={
+              rate: Number(this.RateForm.value.rate4),
+              ratedId: Number(this.paramsUser),
+              raterId: this.users[0].id,
+            }
+            this.rateService.AddRate(rateInfo).subscribe((next:any) => {
+              console.log('Add successfully!');
+          
+                this.toast.success({detail:'Success',summary:'Rate successfully!', sticky:false,position:'tr', duration:1000})
+                this.router.navigate(['/user/'+this.paramsUser]);
+              });
+          }
+          else{
+            if(this.RateForm.value.rate5 != '')
+            {
+              let rateInfo ={
+                rate: Number(this.RateForm.value.rate5),
+                ratedId: Number(this.paramsUser),
+                raterId: this.users[0].id,
+              }
+              this.rateService.AddRate(rateInfo).subscribe((next:any) => {
+                console.log('Add successfully!');
+            
+                  this.toast.success({detail:'Success',summary:'Rate successfully!', sticky:false,position:'tr', duration:1000})
+                  this.router.navigate(['/user/'+this.paramsUser]);
+                });
+            }
+            else{
+              
+            }
+          }
+        }
+      }
+    }
+
   }
 
 }

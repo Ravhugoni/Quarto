@@ -18,6 +18,15 @@ export class JobsService {
     return this.httpClient.post(API_URL, jobDetails).pipe();
   }
   
+  bidJob(jobDetails:any): Observable<any> {
+    let API_URL = environment.REST_API + '/bidjob';
+    return this.httpClient.post(API_URL, jobDetails).pipe();
+  }
+
+  GetAllBidJobs(): Observable<any>  {
+    return this.httpClient.get(environment.REST_API + '/bidjob');
+  }
+  
   UserLogin(loginDetails:any): Observable<any> {
     let API_URL = environment.REST_API + '/users/login';
     return this.httpClient.post(API_URL, loginDetails)

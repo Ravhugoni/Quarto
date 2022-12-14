@@ -3,7 +3,8 @@
         <div class="row header">
             <!-- <h3 class="text-center">PROFILE</h3> -->
             <div class="profile-img mx-auto shadow">
-                <img src="../../../assets/img/PngItem_5228805.png">
+                <!-- <img src="../../../assets/img/PngItem_5228805.png"> -->
+                <i class="fa fa-user"></i> 
             </div>
             <p class="text-center mt-3"><b>{{item.fullname}}</b></p>
         </div>
@@ -98,6 +99,36 @@
             </div>
         </div> 
 
+    </div>
+
+    <div class="container">
+        <div class="justify-content-center">
+
+            <div class="row text-center">
+                <h3>Rate User</h3>
+            </div>
+
+            <form class="row g-4" [formGroup] = "RateForm" novalidate>
+                <div class="col-8">
+                    <div class="rate">
+                        <input type="radio" id="star5" name="rate" value="5" formControlName="rate5"/>
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4" formControlName="rate4"/>
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3" formControlName="rate3"/>
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2" formControlName="rate2"/>
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1" formControlName="rate1"/>
+                        <label for="star1" title="text">1 star</label>
+                      </div>
+                </div>
+
+                <div class="col-4">
+                    <button (click)="AddRate()" class="btn btn-warning">Rate User</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

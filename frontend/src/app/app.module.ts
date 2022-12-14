@@ -17,6 +17,8 @@ import { FeaturesComponent } from './pages/features/features.component';
 import { AddJobComponent } from './pages/jobs/add-job/add-job.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ViewUserComponent } from './pages/view-user/view-user.component';
+import { BidJobListComponent } from './pages/jobs/bid-job-list/bid-job-list.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { ViewUserComponent } from './pages/view-user/view-user.component';
     AddJobComponent,
     ProfileComponent,
     ViewUserComponent,
+    BidJobListComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { ViewUserComponent } from './pages/view-user/view-user.component';
     RouterModule,
     NgToastModule,
     NgxSpinnerModule,
+    DataTablesModule,
   ],
   providers: [
     AuthguradService

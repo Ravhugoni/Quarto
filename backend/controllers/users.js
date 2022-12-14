@@ -35,17 +35,12 @@ const getUsers = (request, response) => {
   
   const updateUser = (request, response) => {
     const id = request.params.id;
-    const { firstname,lastname,email,phone} = request.body
+    const { fullname, email, idNumber, address, userType, phone} = request.body
 
-
-
-    
-  
-    pool.query('UPDATE users SET firstname=$1, lastname=$2, email=$3, phone=$4 WHERE id=$5 returning *',[firstname, lastname, email, phone, id], (error, results) => {
+    pool.query('UPDATE public.users SET fullname= $1, email= $2, "idNumber"= $3, address = $4, "userType"= $5, phone=$6 WHERE id=$7 returning *',[fullname, email, idNumber, address, userType, phone, id], (error, results) => {
         
-          response.status(200).send()
+        response.status(200).send()
         //response.send(JSON.stringify(results));
-        
       }
     )
   }

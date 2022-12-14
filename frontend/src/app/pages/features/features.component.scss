@@ -45,12 +45,24 @@
     width: 100%;
     height: 100%;
 }
+
+.supplier .img i{
+    width: fit-content;
+    height: 200px;
+    width: 200px;
+    // margin: auto;
+    font-size: 40px;
+    color: var(--gray);
+}
+
+
 .supplier .card{
     border-style: none;
+    height: 200px;
 }
 .supplier .name
 {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
 }
 .supplier .address

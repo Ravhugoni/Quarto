@@ -30,6 +30,23 @@ const getJobs = (request, response) => {
     })
     
 }
+
+const bidJob = (req, res) => {
+
+  const { jobId, biderId, status} = req.body
+  pool.query('INSERT INTO public."bidJob"("jobId", "biderId", status) VALUES ($1, $2,$3);',  [jobId, biderId, status], (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(201).send(`User added with ID: ${results.insertId}`)
+  })
+}
+
+const getBidJobs = (request, response) => {
+  pool.query('SELECT * FROM public."bidJob" b, job j, users u WHERE b."jobId" = j.id AND b."biderId" = u.id ORDER BY b.id ASC', (error, results) => {
+    response.status(200).json(results.rows)
+  }),handleErr
+}
   
 //   const updateUser = (request, response) => {
 //     const id = request.params.id;
@@ -61,6 +78,8 @@ const getJobs = (request, response) => {
   module.exports = {
     getJobs,
     postJob,
+    bidJob,
+    getBidJobs,
     // postUsers,
     // updateUser,
     // deleteUser

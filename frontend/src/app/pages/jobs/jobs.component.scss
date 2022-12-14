@@ -51,3 +51,68 @@
     border-radius: 5px;
     
 }
+
+.job-card .card{
+	display: block;
+	padding: 3vh 2vh 7vh 5vh;
+	border: none;
+	border-radius: 15px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	max-width: 500px;
+}
+.job-card .header{
+	margin-bottom: 5vh;
+	margin-right: 2vh;
+	float: right;
+	margin-left: auto;
+}
+
+.job-card .far{
+	color: rgba(15, 198, 239, 0.97)!important;
+	font-size: 16px!important;
+}
+.job-card p.heading{
+	font-weight: bold;
+	font-size: 25px;
+}
+.job-card p.text-muted{
+	font-size: 14px;
+	// font-weight: bold;
+	color: #a1a7ae!important;
+}
+.job-card .btn-sm{
+	border-radius: 8px;
+}
+.job-card .fas.fa-users{
+	color: rgba(15, 198, 239, 0.97)!important;
+}
+.job-card .mutual span{
+	font-size: 14px;
+	color: #adb5bd;
+	font-weight: bold;
+}
+.job-card .btn-primary.btn-lg{
+    border-radius: 30px;
+    width: 90%;
+    border: none;
+    background: #8c02e3;
+}
+.job-card .btn-dark.btn-lg{
+    border-radius: 30px;
+    width: 90%;
+    border: none;
+    background: #dee2e6;
+}
+.job-card .btn-dark span{
+	font-size: 14px;
+	text-align: center;
+	color: #0000008c;
+	font-weight: bold;
+}
+.job-card .btn-primary span{
+	font-size: 14px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+}

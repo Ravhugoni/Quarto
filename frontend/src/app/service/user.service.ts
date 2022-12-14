@@ -38,7 +38,8 @@ updateProfile(id: any, data: any): Observable<any> {
 }
 
 updateUser(id: any, data: any): Observable<any> {
-  return this.httpClient.patch(`${environment.REST_API}/users/${id}`, data);
+  let API_URL = environment.REST_API + '/users/'+id;
+  return this.httpClient.put(API_URL, data).pipe();
 }
 
 }
