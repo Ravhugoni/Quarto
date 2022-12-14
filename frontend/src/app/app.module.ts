@@ -30,7 +30,7 @@ import { DataTablesModule } from 'angular-datatables';
     AddJobComponent,
     ProfileComponent,
     ViewUserComponent,
-    BidJobListComponent,
+    BidJobListComponent
   ],
   imports: [
     BrowserModule,

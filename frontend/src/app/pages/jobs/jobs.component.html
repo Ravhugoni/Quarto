@@ -10,63 +10,6 @@
         </div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-12" *ngFor="let job of jobs">
-        <div class="card shadow">
-
-          <div class="card-header">
-            <div class="row">
-              <div class="col-10">
-                <span class="discription">
-                  <img src="../../../assets/img/PngItem_306527.png">
-                  {{job.fullname}}
-              </span>
-              </div>
-              <!-- <div class="col-6">
-  
-              </div> -->
-            </div>
-          </div>
-         
-          <div class="row card-body">
-            <div class="container">
-              <div class="row">
-                <div class="col-6">
-                  <span class="title"><b>{{job.title}}</b></span>
-                </div>
-                <div class="col-6">
-                  <span class="text-muted">R{{job.price}}</span>
-                </div>
-                </div>
-
-              <hr>
-
-              <span class="discription"><i class="bi bi-phone-fill" aria-hidden="true"></i> {{job.discription}}</span><br><hr>
-              <span class="discription"><i class="fa fa-map-marker" aria-hidden="true"></i>{{job.address}}</span>
-            </div>
-          </div><br>
-
-          <div class="card-footer text-muted">
-            <div class="row text-center">
-              <div class="col-6"> 
-                <span class="discription justify-content-end">Posted: {{job.created_at| date:'yyyy-MMM-dd HH:mm'}}</span>
-              </div>
-              <div class="col-6">
-                <p></p>
-                <span class="seemorebtn mt-3" (click)="BidJob(job.id)">Apply</span>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-
-      <div class="col-12 text-center" *ngIf="jobLength === 0">
-          <p>No Job under <b>{{paramsCategoryName}}</b> Category</p>
-      </div>
-
-    </div>
-
     <div class="container job-card">
       <div class="col-lg-4 col-md-4 col-sm-12 shadow" *ngFor="let job of jobs">
         <div class="card mx-auto">
@@ -78,19 +21,19 @@
               <p class="heading">{{job.title}}&nbsp;<i class="far fa-compass"></i></p>
             </div>
             
-            <p class="text-muted">You will be responsible for washing <br>for multi device.Understand basic design,<br>User journey, Ideation and Wireframing, etc...</p>
+            <p class="text-muted">{{job.discription}}</p>
             <div class="row my-4">
               
             </div>
       
-            <div class="mutual"><i class="fas fa-clock"></i>&nbsp;&nbsp;<span>5 Friends work here</span></div>
+            <div class="mutual"><i class="fas fa-clock"></i>&nbsp;&nbsp;<span>{{job.created_at| date:'yyyy-MMM-dd HH:mm'}}</span></div>
             <div class="row btnsubmit mt-4">
               <div class="col-md-6 col-6">
                 
               </div>
               <div class="col-md-6 col-6">
                 <!-- <button type="button" class="btn btn-dark btn-lg"><span>Message</span></button> -->
-                <button type="button" class="btn btn-primary btn-lg"><span>Apply Now</span></button>
+                <button type="button" class="btn btn-primary btn-lg" (click)="BidJob(job.id)"><span>Apply Now</span></button>
               </div>
             </div>
         </div>
